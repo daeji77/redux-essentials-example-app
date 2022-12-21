@@ -11,7 +11,10 @@ export const AddPostForm = () => {
 
   const onTitleChanged = e => setTitle(e.target.value)
   const onContentChanged = e => setContent(e.target.value)
+
   const onSavePostClicked = () => {
+    if (!title || !content) return;
+
     dispatch(postAdded({id: nanoid(), title, content}));
 
     setTitle('');
