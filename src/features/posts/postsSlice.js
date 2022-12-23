@@ -1,8 +1,8 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 const initialState = [
-  { id: '1', title: 'First post', content: 'Hello' },
-  { id: '2', title: 'Second post', content: 'More text' },
+  { id: '1', title: 'First post', content: 'Hello', userId: '2' },
+  { id: '2', title: 'Second post', content: 'More text', userId: '1' },
 ]
 const postsSlice = createSlice({
   name: 'posts',
@@ -12,12 +12,13 @@ const postsSlice = createSlice({
       reducer(state, action) {
         state.push(action.payload);
       },
-      prepare(title, content) {
+      prepare(title, content, userId) {
         return {
           payload: {
             id: nanoid(),
             title,
             content,
+            userId
           }
         }
       }
