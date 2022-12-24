@@ -23,7 +23,7 @@ export const AddPostForm = () => {
   const canSave = Boolean(title) && Boolean(content) && Boolean(userId)
 
   const usersList = useSelector(states => states.users.map(
-    user => <option id={user.id} value={user.id}>{user.name}</option>
+    user => <option key={user.id} value={user.id}>{user.name}</option>
   ))
 
   return (
